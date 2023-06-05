@@ -3,20 +3,21 @@ Construction d'un modèle (à temps continu) de la pandémie de COVID-19 en Finl
 ## Structure du modèle
 
 La structure générale du modèle est inspirée de celle de SIMID. De plus, trois classes d'âge sont considérées : 
-- Moins de 25 ans
-- De 25 à 64 ans
-- 65 ans et plus
+- Moins de 25 ans.
+- De 25 à 64 ans.
+- 65 ans et plus.
 Pour chacune des classes d'âge, le modèle simule de façon continue l'évolution des compartiments :
-- S : Susceptibles
-- E : Exposés
-- I_presym : Infectés pré-symptomatiques
-- I_asym : Infectés asymptomatiques
-- I_mild : Infectés avec symptômes usuels
-- I_sev : Infectés avec symptômes sévères
-- I_hosp : Infectés hospitalisés
-- I_icu : Infectés en soins intensifs
-- R : Rétablis
-- D : Décédés
+- S : Susceptibles.
+- E : Exposés.
+- I_presym : Infectés pré-symptomatiques.
+- I_asym : Infectés asymptomatiques.
+- I_mild : Infectés avec symptômes usuels.
+- I_sev : Infectés avec symptômes sévères.
+- I_hosp : Infectés hospitalisés.
+- I_icu : Infectés en soins intensifs.
+- R : Rétablis.
+- D : Décédés.
+
 Les infections se font en considérant les quantités I_presym, I_asym, I_mild et I_sev pondérés par trois paramètres q_presym, q_asym et q_sym (pour les infections usuelles et sévères) et la matrice des contacts sociaux.
 L'infectiosité des individus hospitalisés et en soins intensifs est négligée. Aussi, la susceptibilité de chacune des tranches d'âges est modulée par le vecteur de paramètres q_age. 
 Le reste des transitions entre compartiment est géré de façon similaire à SIMID.
@@ -24,9 +25,9 @@ Le reste des transitions entre compartiment est géré de façon similaire à SI
 ## Données
 
 Les données suivantes sont utilisées lors de l'entraînement du modèle :
-- Nouveaux cas testés hebdomadaires par tranches d'âges (Source : ECDC, https://www.ecdc.europa.eu/en/covid-19/data) ("Données 1")
-- Cas actifs hebdomadaires par tranches d'âges (Source : Institut national de la santé (Finlande), https://sampo.thl.fi/pivot/prod/en/epirapo) ("Données 2")
-- Patients hospitalisés (actifs), en soins intensifs (actifs) et décès (totaux) quotidiens (Source : Our World in Data, https://ourworldindata.org) ("Données 3")
+- Nouveaux cas testés hebdomadaires par tranches d'âges (Source : ECDC, https://www.ecdc.europa.eu/en/covid-19/data) ("Données 1").
+- Cas actifs hebdomadaires par tranches d'âges (Source : Institut national de la santé (Finlande), https://sampo.thl.fi/pivot/prod/en/epirapo) ("Données 2").
+- Patients hospitalisés (actifs), en soins intensifs (actifs) et décès (totaux) quotidiens (Source : Our World in Data, https://ourworldindata.org) ("Données 3").
 L'entraînement se fera sur les données hebdomadaires, les données quotidiennes sont converties accordément.
 La matrice des contacts sociaux utilisée provient de http://www.socialcontactdata.org.
 
